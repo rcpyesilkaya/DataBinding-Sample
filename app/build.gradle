@@ -1,6 +1,9 @@
 plugins {
     id 'com.android.application'
+    id 'kotlin-android-extensions'
     id 'kotlin-android'
+    id 'kotlin-kapt'
+
 }
 
 android {
@@ -30,8 +33,13 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-}
 
+    buildFeatures {
+        dataBinding true
+    }
+}
+def glideVersion = '4.9.0'
+def swipeRefreshLayout = '1.1.0'
 dependencies {
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
@@ -42,4 +50,7 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+    implementation "com.github.bumptech.glide:glide:$glideVersion"
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:$swipeRefreshLayout"
 }
