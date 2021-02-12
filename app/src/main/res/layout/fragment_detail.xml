@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View" />
+        <variable
+            name="viewModel"
+            type="com.recepyesilkaya.databinding_sample.ui.detail.DetailViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".ui.detail.DetailFragment">
+
+        <ImageView
+            android:id="@+id/ivProduct"
+            loadImage="@{viewModel.market.image}"
+            android:layout_width="match_parent"
+            android:layout_height="250dp" />
+
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="@{viewModel.market.name}"
+            android:textAlignment="center"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:onClick="@{viewModel.onClick}"/>
+
+        <TextView
+            android:id="@+id/tvCategory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="@{viewModel.market.category}" />
+
+        <TextView
+            android:id="@+id/tvPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="@{Integer.toString(viewModel.market.price)}" />
+
+        <TextView
+            android:id="@+id/tvCount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="@{Integer.toString(viewModel.count)}" />
+
+        <ImageView
+            android:id="@+id/ivSoldOut"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:src="@drawable/sold_out"
+            android:visibility="@{viewModel.soldOut ? View.VISIBLE : View.GONE,default=gone}" />
+
+    </LinearLayout>
+</layout>
